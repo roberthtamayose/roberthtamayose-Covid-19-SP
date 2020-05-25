@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState}from 'react';
 import './App.css';
+import Atual from './components/atual'
+import AnyDate from './components/anyDate'
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
+  const [flag,setFlag] = useState('1')
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Button variant="primary" size="lg" onClick={event => setFlag('1')} active>
+        Atual
+      </Button>
+      <Button variant="primary" size="lg" onClick={event => setFlag('2')} active>
+        P/data
+      </Button>
+      {(() => {
+        switch (flag) {
+          case "1":   return <Atual/>
+          case "2": return <AnyDate/>
+          default:  return null
+        }
+      })()}
     </div>
   );
 }
