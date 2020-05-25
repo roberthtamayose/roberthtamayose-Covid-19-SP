@@ -14,7 +14,6 @@ const Atual = () => {
             <p>Casos Confirmados: {data.cases}</p>
             <p>Casos Suspeitos: {data.suspects}</p>
             <p>Mortes: {data.deaths}</p>
-            <p>Curados: {data.refuses}</p>
         </>
     )
 }
